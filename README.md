@@ -15,12 +15,6 @@ When working on different characterisation projects, it's important to maintain 
 - **Plot saving**: Custom plot saving with fixed 1:1.4 aspect ratio and 300 DPI resolution
 - **AI agent instructions**: Instruction file allowing AI agents to create plots that are not hard-coded in the package while mainting the same stylistic approach.
 
-## Main Functions
-
-- **Plotting**: `plot_measures()`, `plot_char_quantities()`, `plot_iras()`, `plot_machine()`, `plot_materials()`, `plot_irradiation()`
-- **Theming**: `theme_professional()`, `theme_barplot_axes()`, `theme_no_x_axis()`, `theme_no_y_axis()`
-- **Utilities**: `geom_histogram_custom()`, `freedman_diaconis_binwidth_log()`, `label_machines()`, `save_plot()`
-
 ## Quick Start
 
 ```R
