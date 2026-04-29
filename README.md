@@ -14,6 +14,7 @@ When working on different characterisation projects, it's important to maintain 
 - **Colorblind-Friendly**: Carefully selected color palettes (viridis for multi-color, cadetblue/coral for comparisons)
 - **Plot saving**: Custom plot saving with fixed 1:1.4 aspect ratio and 300 DPI resolution
 - **AI agent instructions**: Instruction file allowing AI agents to create plots that are not hard-coded in the package while mainting the same stylistic approach.
+- **Human guidelines**: File with the explanation behind the design decisions.
 
 ## Quick Start
 
