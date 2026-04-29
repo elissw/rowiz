@@ -18,6 +18,14 @@ When working on different characterisation projects, it's important to maintain 
 
 ## Quick Start
 
+To use:
+
+1. Download/Clone/Get this package in whatever way you like.
+2. In your prefered R IDE go in its root directory and do `devtools::load_all()` (you might need to install devtools first). This way, you can use it as a normal R package but it's not permanently installed, in a new R session you need to load again.
+3. You can install it if you wish with `devtools::install()` instead. If you install it, you can just load it with `library(MoViz)` and use it as a normal R package.
+
+When you have it: 
+
 ```R
 library(MoViz)
 
