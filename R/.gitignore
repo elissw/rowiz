@@ -7,3 +7,4 @@
 .Rcheck/
 .Rcache/
 *.Rproj
+agent_sandbox/
