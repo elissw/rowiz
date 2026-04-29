@@ -50,6 +50,7 @@ Saving:
 
 General:
 - If you need to create a plot that doesn't exist, still look through this package scripts to see how similar plots are created
+- If you prefer creating your plots in python, it's perfectly ok but try to mimic the style of the R plots as closely as possible. For example don't forget that the histogram is more of a step plot.
 
 ## 2. How to create specific plots
 

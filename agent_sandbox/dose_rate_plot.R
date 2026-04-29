@@ -14,9 +14,6 @@ plot_dr_distribution <- ggplot(df) +
   labs(x = "Dose rate @ 10cm [uSv/h]", y = "Number of items") +
   theme_professional()
 
-# Display the plot
-print(plot_dr_distribution)
-
 # Save the plot using ggsave instead
 ggplot2::ggsave("dose_rate_distribution_10cm.png", plot_dr_distribution, 
                 width = 7, height = 5, dpi = 300)

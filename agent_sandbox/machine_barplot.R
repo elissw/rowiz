@@ -43,9 +43,6 @@ plot_machines <- ggplot(df_machine_counts) +
                      hjust = -0.3, size = 5) +
   ggplot2::expand_limits(x = c(0.5, NA), y = c(0, max(df_machine_counts$percentage) * 1.15))
 
-# Display the plot
-print(plot_machines)
-
 # Save the plot using ggsave
 ggplot2::ggsave("machine_distribution.png", plot_machines, 
                 width = 8, height = 6, dpi = 300)

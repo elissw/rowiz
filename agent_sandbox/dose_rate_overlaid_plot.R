@@ -22,9 +22,6 @@ plot_dr_comparison <- ggplot(df) +
     label = "@ 40 cm", color = "coral", size = 5,
     hjust = 1.1, vjust = 4)
 
-# Display the plot
-print(plot_dr_comparison)
-
 # Save the plot using ggsave
 ggplot2::ggsave("dose_rate_comparison_overlaid.png", plot_dr_comparison, 
                 width = 7, height = 5, dpi = 300)

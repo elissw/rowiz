@@ -30,9 +30,6 @@ plot_combined <- patchwork::wrap_plots(
   nrow = 2
 )
 
-# Display the plot
-print(plot_combined)
-
 # Save the plot using ggsave
 ggplot2::ggsave("dose_rate_distribution_10cm_40cm.png", plot_combined, 
                 width = 7, height = 10, dpi = 300)
