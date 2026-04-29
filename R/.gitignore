@@ -1,0 +1,9 @@
+.Rhistory
+.RData
+.Rproj.user
+.Ruserdata
+.RDS
+.Rbuildignore
+.Rcheck/
+.Rcache/
+*.Rproj
