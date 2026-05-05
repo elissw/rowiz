@@ -307,11 +307,12 @@ plot_machine <- function(df) {
                           ggplot2::aes(y=machine_labelled))+
     ggplot2::geom_bar(width=0.4, fill="#26828e")+
     ggplot2::labs(title="Machine",y="")+
-    theme_professional()+theme_no_x_axis+
+    theme_professional()+theme_barplot_axes+
     ggplot2::coord_cartesian(xlim=c(0,nrow(df)*0.75))+
     ggplot2::geom_label(stat = "count", 
                         ggplot2::aes(label = paste0(round(ggplot2::after_stat(count)/sum(ggplot2::after_stat(count)) * 100, 1), "%")),
-                        hjust = -0.1, size = 3.5, fill = "white", label.size = 0)  
+                        hjust = -0.1, size = 3.5, fill = "white", label.size = 0)
+    
 
   return(plot)
 }
