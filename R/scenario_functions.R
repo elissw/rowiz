@@ -126,7 +126,7 @@ plot_materials <- function(df) {
 
     plot2 <- ggplot2::ggplot(df_groups, 
       ggplot2::aes(y = group, x = percentage)) +
-      ggplot2::geom_bar(stat = "identity", width = 0.4, fill = "grey40") +
+      ggplot2::geom_bar(stat = "identity", width = 0.4, fill = "cadetblue") +
       ggplot2::labs(
          x = "Percentage [%]",
          y = "") +
