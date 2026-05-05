@@ -263,23 +263,23 @@ plot_mass_info <- function(df) {
 
   df_plot <- df |> dplyr::filter(component_id==0)
 
-  binwidth <- freedman_diaconis_binwidth((df_plot$mass_kg))
   plot1 <- ggplot2::ggplot(df_plot, ggplot2::aes(x = mass_kg)) +
-    geom_histogram_custom("mass_kg", binwidth, "black")+
-    ggplot2::labs(x="Mass [kg]", y="Number of items")+
+    geom_density(aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
+                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
+    ggplot2::labs(x="Mass [kg]", y="Distribution [a.u.]")+
     theme_professional()
 
   df_plot <- df_plot |> dplyr::mutate(volume_m3 = volume_cm3 / 1000000)
-  binwidth <- freedman_diaconis_binwidth((df_plot)$volume_m3)
   plot2 <- ggplot2::ggplot(df_plot, ggplot2::aes(x = volume_m3)) +
-    geom_histogram_custom("volume_m3", binwidth, "black")+
-    ggplot2::labs(x="Volume [m3]", y="Number of items")+
+    geom_density(aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
+                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
+    ggplot2::labs(x="Volume [m3]", y="Distribution [a.u.]")+
     theme_professional()
 
-  binwidth <- freedman_diaconis_binwidth((df_plot)$density_g_cm3)
   plot3 <- ggplot2::ggplot(df_plot, ggplot2::aes(x = density_g_cm3)) +
-    geom_histogram_custom("density_g_cm3", binwidth, "black")+
-    ggplot2::labs(x="Density [g/cm3]", y="Number of items")+
+    geom_density(aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
+                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
+    ggplot2::labs(x="Density [g/cm3]", y="Distribution [a.u.]")+
     theme_professional()
 
     plot <- patchwork::wrap_plots(

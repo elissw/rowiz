@@ -106,3 +106,8 @@ plot_materials(df)
 plot_irradiation(df)
 ```
 
+### Physical characteristics
+
+```{r pmass, fig.width=3*5, fig.height=1*5/1.4, dpi=96}
+plot_mass_info(df)
+```
