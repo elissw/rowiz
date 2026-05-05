@@ -83,6 +83,7 @@ plot_materials <- function(df) {
   
   main_mats <- unique(df_main$material)
   palette <- viridis::viridis(length(main_mats), option = "D")
+  palette_named <- setNames(palette, main_mats)
 
   plot1 <- ggplot2::ggplot(df_main)
 
@@ -126,11 +127,12 @@ plot_materials <- function(df) {
 
     plot2 <- ggplot2::ggplot(df_groups, 
       ggplot2::aes(y = group, x = percentage)) +
-      ggplot2::geom_bar(stat = "identity", width = 0.4, fill = "cadetblue") +
+      ggplot2::geom_bar(stat = "identity", width = 0.4, aes(fill=material)) +
       ggplot2::labs(
          x = "Percentage [%]",
          y = "") +
       ggplot2::facet_wrap(~material, scales = "free")+
+      scale_fill_manual(values = palette_named, guide = "none")+
       theme_professional()
   
   plot <- patchwork::wrap_plots(
