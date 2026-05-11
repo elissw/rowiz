@@ -127,12 +127,12 @@ plot_materials <- function(df) {
 
     plot2 <- ggplot2::ggplot(df_groups, 
       ggplot2::aes(y = group, x = percentage)) +
-      ggplot2::geom_bar(stat = "identity", width = 0.4, aes(fill=material)) +
+      ggplot2::geom_bar(stat = "identity", width = 0.4, ggplot2::aes(fill=material)) +
       ggplot2::labs(
          x = "Percentage [%]",
          y = "") +
       ggplot2::facet_wrap(~material, scales = "free")+
-      scale_fill_manual(values = palette_named, guide = "none")+
+      ggplot2::scale_fill_manual(values = palette_named, guide = "none")+
       theme_professional()
   
   plot <- patchwork::wrap_plots(
@@ -303,7 +303,7 @@ plot_machine <- function(df) {
   # Make sure machines are labelled
   df <- label_machines(df)
 
-  plot <- ggplot2::ggplot(df,
+  plot1 <- ggplot2::ggplot(df,
                           ggplot2::aes(y=machine_labelled))+
     ggplot2::geom_bar(width=0.4, fill="#26828e")+
     ggplot2::labs(title="Machine",y="")+
@@ -313,6 +313,20 @@ plot_machine <- function(df) {
                         ggplot2::aes(label = paste0(round(ggplot2::after_stat(count)/sum(ggplot2::after_stat(count)) * 100, 1), "%")),
                         hjust = -0.1, size = 3.5, fill = "white", label.size = 0)
     
+  plot2 <- ggplot2::ggplot(df|>dplyr::filter(machine_labelled=="LHC experiments"),
+                          ggplot2::aes(y=machine))+
+    ggplot2::geom_bar(width=0.4, fill="#26828e")+
+    ggplot2::labs(title="LHC experiment",y="")+
+    theme_professional()+theme_barplot_axes+
+    ggplot2::coord_cartesian(xlim=c(0,nrow(df|>dplyr::filter(machine_labelled=="LHC experiments"))*0.5))+
+    ggplot2::geom_label(stat = "count", 
+                        ggplot2::aes(label = paste0(round(ggplot2::after_stat(count)/sum(ggplot2::after_stat(count)) * 100, 1), "%")),
+                        hjust = -0.1, size = 3.5, fill = "white", label.size = 0)
 
+  plot <- patchwork::wrap_plots(
+    plot1,plot2,
+    ncol=2,
+    nrow=1
+  )
   return(plot)
 }

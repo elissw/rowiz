@@ -2,7 +2,9 @@
 % Please edit documentation in R/Inspect_functions.R
 \name{inspect_parameters}
 \alias{inspect_parameters}
-\title{Inspect all scenario parameters in a glance}
+\title{Inspect all scenario parameters in a glance
+Returns a named list of plots: "plot_physical_characteristics"
+and "plot_irradiation_characteristics"}
 \usage{
 inspect_parameters(df)
 }
@@ -11,4 +13,6 @@ inspect_parameters(df)
 }
 \description{
 Inspect all scenario parameters in a glance
+Returns a named list of plots: "plot_physical_characteristics"
+and "plot_irradiation_characteristics"
 }
