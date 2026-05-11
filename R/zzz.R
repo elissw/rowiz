@@ -2,7 +2,7 @@
   packageStartupMessage(
     "\n",
     "─────────────────────────────────────────────────────────\n",
-    "  You have loaded MoViz. Type `MoViz_help()` for guidance\n",
+    "  You have loaded Rowiz. Type `Rowiz_help()` for guidance\n",
     "─────────────────────────────────────────────────────────"
   )
 }

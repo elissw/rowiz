@@ -1,14 +1,14 @@
 #' Function to introduce the user to the package
-#' @name MoViz_help
+#' @name Rowiz_help
 #' @export
-MoViz_help <- function() {
+Rowiz_help <- function() {
   cat("
 
 ======================================================
-               MOVIZ QUICK GUIDE
+               ROWIZ QUICK GUIDE
 ======================================================
 
-Hi, welcome to MoViz and thank you for using this package
+Hi, welcome to Rowiz and thank you for using this package
 instead of chatgpt directly.
   
 To list all functions provided, do
@@ -65,7 +65,7 @@ Other useful functions (use ? to see the manual)
 #' @export
 list_package_functions <- function() {
 
-  pkg <- "MoViz"
+  pkg <- "Rowiz"
 
   funs <- getNamespaceExports(pkg)
   funs <- sort(funs)
