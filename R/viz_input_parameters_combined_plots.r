@@ -1,44 +1,20 @@
 #' Function to plot irradiation conditions: beam intensity, 
 #' irradiation time and waiting time. Returns the plot (patchwork wrap).
-#' @name plot_irradiation
+#' @name plot_irradiation_parameters
 #' @param df Dataframe with beam intensity, irradiation and waiting time columns (can be scn or itm)
 #' @export
-plot_irradiation <- function(df){
+plot_irradiation_parameters <- function(df){
 
+  plot1 <- plot_beam_losses(df)
+  plot2 <- plot_irradiation_time(df) + theme_no_y_axis
+  plot3 <- plot_waiting_time(df) + theme_no_y_axis
 
-  
-  plot1 <- ggplot2::ggplot(df|>dplyr::filter(component_id==0),
-                          ggplot2::aes(x=beam_p_s,y=machine_labelled))+
-    ggridges::geom_density_ridges(ggplot2::aes(color=machine_labelled,fill=machine_labelled),
-                        linewidth=0.8,alpha=0.6,
-                        bandwidth = 0.25)+
-    ggplot2::scale_x_log10()+
-    ggplot2::scale_color_viridis_d()+ggplot2::scale_fill_viridis_d()+
-    ggplot2::labs(y="Machine",x="Beam losses [p/s]")+
-    ggplot2::guides(color="none",fill="none")+
-    theme_professional()
-
-  
-
-  plot3 <- ggplot2::ggplot(df|>dplyr::filter(component_id==0),
-                    ggplot2::aes(x=waiting_y,y=machine_labelled))+
-    ggridges::geom_density_ridges(ggplot2::aes(color=machine_labelled,fill=machine_labelled),
-                        linewidth=0.8,alpha=0.6,
-                        bandwidth = 1.5)+
-    ggplot2::scale_color_viridis_d()+ggplot2::scale_fill_viridis_d()+
-    ggplot2::labs(x="Waiting time [y]")+
-    theme_professional()+theme_no_y_axis+
-    ggplot2::guides(color="none",fill="none")
 
   plot <- patchwork::wrap_plots(
     plot1, plot2, plot3,
     ncol = 3,
     nrow = 1
-    )+
-  patchwork::plot_annotation(
-    title = "Irradiation parameters",
-    theme = theme_professional()
-  )
+    )
   
   return(plot)
 }
@@ -50,26 +26,9 @@ plot_irradiation <- function(df){
 #' @export
 plot_mass_info <- function(df) {
 
-  df_plot <- df |> dplyr::filter(component_id==0)
-
-  plot1 <- ggplot2::ggplot(df_plot, ggplot2::aes(x = mass_kg)) +
-    geom_density(aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
-                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
-    ggplot2::labs(x="Mass [kg]", y="Distribution [a.u.]")+
-    theme_professional()
-
-  df_plot <- df_plot |> dplyr::mutate(volume_m3 = volume_cm3 / 1000000)
-  plot2 <- ggplot2::ggplot(df_plot, ggplot2::aes(x = volume_m3)) +
-    geom_density(aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
-                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
-    ggplot2::labs(x="Volume [m3]", y="Distribution [a.u.]")+
-    theme_professional()
-
-  plot3 <- ggplot2::ggplot(df_plot, ggplot2::aes(x = density_g_cm3)) +
-    geom_density(aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
-                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
-    ggplot2::labs(x="Density [g/cm3]", y="Distribution [a.u.]")+
-    theme_professional()
+  plot1 <- plot_mass(df)
+  plot2 <- plot_volume(df)
+  plot3 <- plot_density(df)
 
     plot <- patchwork::wrap_plots(
     plot1, plot2,plot3,
@@ -91,7 +50,7 @@ plot_mass_info <- function(df) {
 plot_scenario_parameters <- function(df){
 
   plot1 <- plot_materials(df) 
-  plot2 <- plot_irradiation(df)
+  plot2 <- plot_irradiation_parameters(df)
 
   plot1 <- patchwork::wrap_elements(full = plot1)
   plot2 <- patchwork::wrap_elements(full = plot2)
@@ -104,5 +63,84 @@ plot_scenario_parameters <- function(df){
     )
   
   return(plot)
+
+}
+
+
+
+#' Inspect all scenario parameters in a glance
+#' Returns a named list of plots: "plot_physical_characteristics"
+#' and "plot_irradiation_characteristics"
+#' @name viz_all_input_parameters
+#' @param df dataframe name
+#' @export
+viz_all_input_parameters <- function(df) {
+
+  cat("\nReminder: Count your rows and columns before you save a plot, so it scales properly and readably\n")
+
+  ############# PHYSICAL PROPERTIES
+  # Material composition
+  #----------------------
+  plot_mats <- plot_materials(df)
+
+  # Geometry
+  #---------
+  plot_dims <- plot_dimensions(df)
+  plot_vol <- plot_volume(df)
+  # combine
+  plot_dimsvol <- patchwork::wrap_plots(
+    plot_vol,plot_dims,
+    ncol = 2,
+    nrow = 1
+  )
+    
+  # Mass
+  #------
+   plot_m <- plot_mass(df)
+   plot_fill <- plot_filling_ratio(df)
+   plot_dens <- plot_density(df)
+# combine
+  plot_filldens <- patchwork::wrap_plots(
+    plot_fill,plot_dens,
+    ncol = 2,
+    nrow = 1
+  )
+  # combine
+  plot_geom <- patchwork::wrap_plots(
+    plot_dimsvol,plot_m,plot_filldens,
+    ncol=1,
+    nrow=3
+  )
+
+  # Combine all
+  #-------------
+  plot_phys <- patchwork::wrap_plots(
+    plot_geom,plot_mats,
+    ncol=2,
+    nrow=1
+  )
+
+
+
+  ############# IRRADIATION PARAMETERS
+  # Irradiation information
+  #------------------------
+  plot_irr <- plot_irradiation_parameters(df)
+
+  # Machine of origin and place of irradiation
+  plot_mach <- plot_machine(df)
+  plot_pos <- plot_position(df)
+  
+  # combine
+  plot_irr_all <- patchwork::wrap_plots(
+    plot_irr,plot_mach,plot_pos,
+    ncol=1,nrow=3
+  )
+  
+# Return both in a named list
+return(list(
+  plot_physical_characteristics = plot_phys,
+  plot_irradiation_characteristics = plot_irr_all
+))
 
 }
