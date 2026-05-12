@@ -30,11 +30,10 @@ plot_materials <- function(df) {
   for (material in main_mats) {
     i <- i+1
     plot1 <- plot1 +
-      ggplot2::geom_density(data=df_main|>dplyr::filter(material==!!material),
+      geom_density_rowiz(data=df_main|>dplyr::filter(material==!!material),
                    ggplot2::aes(x=percentage,
                        y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
-                       color=palette[i], fill=palette[i],
-                       alpha=0.6, linewidth=0.8)+
+                       color=palette[i], fill=palette[i])+
       ggplot2::geom_point(data = dummy,
                  x = 1.0, y = 0.85 - 0.1 * i, color = palette[i],
                  size = 5) +
@@ -66,7 +65,7 @@ plot_materials <- function(df) {
 
     plot2 <- ggplot2::ggplot(df_groups, 
       ggplot2::aes(y = group, x = percentage)) +
-      ggplot2::geom_bar(stat = "identity", width = 0.4, ggplot2::aes(fill=material)) +
+      geom_bar_rowiz(stat = "identity", ggplot2::aes(fill=material)) +
       ggplot2::labs(
          x = "Percentage [%]",
          y = "") +
@@ -97,8 +96,7 @@ plot_irradiation_time <- function(df) {
 
   plot <- ggplot2::ggplot(df|>dplyr::filter(component_id==0),
                             ggplot2::aes(x=irradiation_y,y=machine_labelled))+
-    ggridges::geom_density_ridges(ggplot2::aes(color=machine_labelled,fill=machine_labelled),
-                        linewidth=0.8,alpha=0.6,
+    geom_density_ridges_rowiz(ggplot2::aes(color=machine_labelled,fill=machine_labelled),
                         bandwidth = 1.3)+
     ggplot2::scale_color_viridis_d()+ggplot2::scale_fill_viridis_d()+
     ggplot2::labs(x="Irradiation time [y]", y="Machine")+
@@ -121,8 +119,7 @@ plot_waiting_time <- function(df) {
 
   plot <- ggplot2::ggplot(df|>dplyr::filter(component_id==0),
                             ggplot2::aes(x=waiting_y,y=machine_labelled))+
-    ggridges::geom_density_ridges(ggplot2::aes(color=machine_labelled,fill=machine_labelled),
-                        linewidth=0.8,alpha=0.6,
+    geom_density_ridges_rowiz(ggplot2::aes(color=machine_labelled,fill=machine_labelled),
                         bandwidth = 1.3)+
     ggplot2::scale_color_viridis_d()+ggplot2::scale_fill_viridis_d()+
     ggplot2::labs(x="Waiting time [y]", y="Machine")+
@@ -145,8 +142,7 @@ plot_beam_losses <- function(df) {
   
     plot <- ggplot2::ggplot(df|>dplyr::filter(component_id==0),
                           ggplot2::aes(x=beam_p_s,y=machine_labelled))+
-    ggridges::geom_density_ridges(ggplot2::aes(color=machine_labelled,fill=machine_labelled),
-                        linewidth=0.8,alpha=0.6,
+    geom_density_ridges_rowiz(ggplot2::aes(color=machine_labelled,fill=machine_labelled),
                         bandwidth = 0.25)+
     ggplot2::scale_x_log10()+
     ggplot2::scale_color_viridis_d()+ggplot2::scale_fill_viridis_d()+
@@ -169,7 +165,7 @@ plot_machine <- function(df) {
 
   plot1 <- ggplot2::ggplot(df,
                           ggplot2::aes(y=machine_labelled))+
-    ggplot2::geom_bar(width=0.4, fill="#26828e")+
+    geom_bar_rowiz()+
     ggplot2::labs(title="Machine",y="")+
     theme_professional()+theme_barplot_axes+
     ggplot2::coord_cartesian(xlim=c(0,nrow(df)*0.75))+
@@ -179,7 +175,7 @@ plot_machine <- function(df) {
     
   plot2 <- ggplot2::ggplot(df|>dplyr::filter(machine_labelled=="LHC experiments"),
                           ggplot2::aes(y=machine))+
-    ggplot2::geom_bar(width=0.4, fill="#26828e")+
+    geom_bar_rowiz()+
     ggplot2::labs(title="LHC experiment",y="")+
     theme_professional()+theme_barplot_axes+
     ggplot2::coord_cartesian(xlim=c(0,nrow(df|>dplyr::filter(machine_labelled=="LHC experiments"))*0.5))+
@@ -222,7 +218,7 @@ plot_position <- function(df) {
     dplyr::filter(machine_group != "accelerators") 
 
   plot_acc <- ggplot2::ggplot(df_acc,ggplot2::aes(y = position, x = percentage)) +
-    ggplot2::geom_bar(stat = "identity", width = 0.4) +
+    geom_bar_rowiz(stat = "identity") +
     ggplot2::labs(title = "Position in accelerators",x = "Percentage [%]",y = "") +
     theme_professional()+theme_barplot_axes+
     ggplot2::geom_label(ggplot2::aes(label = paste0(round(percentage, 1), "%")),
@@ -230,7 +226,7 @@ plot_position <- function(df) {
     ggplot2::coord_cartesian(xlim=c(0,80))
   
   plot_exp <- ggplot2::ggplot(df_exp,ggplot2::aes(y = position, x = percentage)) +
-    ggplot2::geom_bar(stat = "identity", width = 0.4) +
+    geom_bar_rowiz(stat = "identity") +
     ggplot2::labs(title="Position in LHC experiments", x = "Percentage [%]",y = "") +
     ggplot2::facet_wrap(~machine_group, ncol = 2, scales="free") +
     theme_professional()
@@ -262,8 +258,7 @@ plot_dimensions <- function(df) {
                                       labels = c("Width", "Height", "Thickness"))
 
   plot_dims <- ggplot2::ggplot(df_dimensions, ggplot2::aes(y=dimension,x=value))+
-    ggridges::geom_density_ridges(ggplot2::aes(color=dimension,fill=dimension),
-                                  linewidth=0.8,alpha=0.6, bandwidth=4.5)+
+    geom_density_ridges_rowiz(ggplot2::aes(color=dimension,fill=dimension),bandwidth=4.5)+
     ggplot2::scale_color_viridis_d()+ggplot2::scale_fill_viridis_d()+
     ggplot2::guides(color="none",fill="none")+
     ggplot2::labs(x="Value [cm]",y="Dimension")+theme_professional()+
@@ -284,8 +279,7 @@ plot_volume <- function(df) {
   df <- df |> dplyr::mutate(volume_m3 = volume_cm3 / 1000000)
   plot_vol <- ggplot2::ggplot(df |> dplyr::filter(component_id==0), 
                               ggplot2::aes(x = volume_m3)) +
-    ggplot2::geom_density(ggplot2::aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
-                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
+    geom_density_rowiz(ggplot2::aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))))+
     ggplot2::labs(x="Volume [m3]", y="Distribution [a.u.]")+
     theme_professional()
 
@@ -301,8 +295,7 @@ plot_volume <- function(df) {
 #' @export
 plot_mass <- function(df) {
     plot <- ggplot2::ggplot(df |> dplyr::filter(component_id==0), ggplot2::aes(x = mass_kg)) +
-    ggplot2::geom_density(ggplot2::aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
-                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
+    geom_density_rowiz(ggplot2::aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))))+
     ggplot2::labs(x="Mass [kg]", y="Distribution [a.u.]")+
     theme_professional()  
 
@@ -317,8 +310,7 @@ plot_mass <- function(df) {
 #' @export
 plot_filling_ratio <- function(df) {
     plot <- ggplot2::ggplot(df |> dplyr::filter(component_id==0), ggplot2::aes(x = filling)) +
-    ggplot2::geom_density(ggplot2::aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
-                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
+    geom_density_rowiz(ggplot2::aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))))+
     ggplot2::labs(x="Filling factor", y="Distribution [a.u.]")+
     theme_professional()
 
@@ -333,8 +325,7 @@ plot_filling_ratio <- function(df) {
 #' @export
 plot_density<- function(df) {
     plot_dens <- ggplot2::ggplot(df |> dplyr::filter(component_id==0), ggplot2::aes(x = density_g_cm3)) +
-    ggplot2::geom_density(ggplot2::aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))),
-                  fill="cadetblue", color="cadetblue",alpha=0.6,linewidth=0.8)+
+    geom_density_rowiz(ggplot2::aes(y = ggplot2::after_stat(density) / max(ggplot2::after_stat(density))))+
     ggplot2::labs(x="Density [g/cm3]", y="Distribution [a.u.]")+
     theme_professional()  
   return(plot_dens)

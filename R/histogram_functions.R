@@ -26,28 +26,5 @@ freedman_diaconis_binwidth_log <- function(x) {
 }
 
 
-#' Geometry to plot a histogram as a line
-#' Use as a normal ggplot2 geometry by adding it
-#' to your ggplot object. Use it like you would any geom_stuff,
-#' so add it to ggplot objects.
-#'
-#' @name geom_histogram_custom
-#' @param variable variable name to be plotted
-#' @param binwidth width of the bins to be used
-#' @param color colour of the line (defaults to black)
-#' @export
-#'
-geom_histogram_custom <- function(variable, binwidth, color = "black") {
-
-    ggplot2::geom_step(
-      ggplot2::aes(x = .data[[variable]]),
-      stat = "bin",
-      binwidth = binwidth,
-      boundary = binwidth/2,
-      color = color,
-      linewidth = 0.8
-    )
-}
-
 
 
