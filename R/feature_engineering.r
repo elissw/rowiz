@@ -60,3 +60,53 @@ get_materials <- function(df) {
   main_mats <- unique(df_main$material)
   return(main_mats)
 }
+
+
+#' Find the relevant nuclides for a specific radiological limit.
+#' By relevant nuclides we mean the ones that have an activity of >= 1% of the whatever limit
+#' for at least one item in the dataframe.
+#' Returns a vector with the revelant nuclide names
+#' @name get_relevant_radionuclides
+#' @param df dataframe name
+#' @param limit_col the name of the column containing the limit we want to check (eg CL_lim)
+#' @export
+get_relevant_radionuclides <- function(df, limit_col) {
+
+  df_radionuclide_library <- read.csv("lib/radionuclide_library.csv")
+
+  # Keep only item rows
+  df_items <- df[df$component_id == 0, ]
+  # make sure it works evn if someone didn't read with check.names = FALSE
+  df_radionuclide_library$radionuclide_norm  <- make.names(df_radionuclide_library$radionuclide)
+  data_norm <- make.names(names(df_items))
+
+  # Keep only radionuclides that exist in the data
+  df_radionuclide_library <-
+    df_radionuclide_library[
+      df_radionuclide_library$radionuclide_norm %in% data_norm,
+    ]
+
+  # Keep only radionuclides with a normal limit for the chosen column
+  df_radionuclide_library <-
+    df_radionuclide_library[
+      df_radionuclide_library[[limit_col]] > 0,
+    ]
+
+  # Extract activities
+  df_activities <-
+    df_items[, match(df_radionuclide_library$radionuclide_norm, data_norm)]
+
+  # Divide by the chosen limit column
+  df_LL_fractions <- sweep(
+    df_activities,
+    2,
+    df_radionuclide_library[[limit_col]],
+    `/`
+  )
+
+  # Check which ones reach 1% of the limit
+  keep <- apply(df_LL_fractions > 0.01, 2, any, na.rm = TRUE)
+
+  return(df_radionuclide_library$radionuclide[keep])
+
+}

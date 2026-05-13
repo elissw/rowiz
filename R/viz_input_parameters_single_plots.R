@@ -21,9 +21,6 @@ plot_materials <- function(df) {
   dplyr::mutate(percentage = mass_kg / sum(mass_kg, na.rm = TRUE)) |>
   dplyr::ungroup()
   
-  
-
-
   palette <- viridis::viridis(length(main_mats), option = "D")
   palette_named <- setNames(palette, main_mats)
 
