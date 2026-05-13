@@ -47,3 +47,16 @@ label_machines <- function(df) {
   return(df)
 
 }
+
+
+
+#' Check what are the main materials our items consist of
+#' Returns a vector with the main material names
+#' @name get_materials
+#' @param df dataframe name
+#' @export
+get_materials <- function(df) {
+  df_main <- df |> dplyr::filter(component_id >0)
+  main_mats <- unique(df_main$material)
+  return(main_mats)
+}

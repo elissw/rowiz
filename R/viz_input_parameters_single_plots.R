@@ -12,6 +12,8 @@ plot_materials <- function(df) {
   dummy <- data.frame(x,y)
 
   # First the main materials
+  main_mats <- get_materials(df)
+  
   df_main <- df |> dplyr::filter(component_id >0)
 
   df_main <- df_main |>
@@ -20,7 +22,8 @@ plot_materials <- function(df) {
   dplyr::ungroup()
   
   
-  main_mats <- unique(df_main$material)
+
+
   palette <- viridis::viridis(length(main_mats), option = "D")
   palette_named <- setNames(palette, main_mats)
 
