@@ -14,6 +14,12 @@ For plots that are coherent with the ones provided by the RoViz package. Confirm
 - In case of a frequency plot/histogram/etc, use "Number of items" or "Number of packages" as a y axis title, depending on the input dataframe
 - Avoid plot titles unless necessary (for example when the plot will be part of a bigger plot ensemble). If you use a title, make it short, concise and descriptive
 
+### Scales
+- If the data span many orders of magnitude, use a logarithmic scale axis. Examples of variables that are better to be plotted with a logarithmic scale are dose rates, activity values, IRAS, LL, etc.
+
+### Units disclaimer:
+The units that are mentioned in these instructions regarding point size, line thickness, etc are given in ggplot2 units so in millimeters. If plotting with something else, convert these values accordingly before applying them. This includes not only data geometry lines but also axis lines, tick lines, plot lines, etc.
+
 ### Specific variables
 - If you need to plot a variable which is attached to a distance (variables with _xcm in their name, eg itm_DR_10cm_uSv_h), mention the distance in the axis title (eg `Dose rate @ 10cm [uSv/h]`)
 - If you need to plot a variable called awz_something (eg awz_IRAS), this awz stands for ActiWiz so include it in the title (eg ActiWiz IRAS)
@@ -24,7 +30,7 @@ Scatter plots:
 - When plotting a scatter plot with a large amount of points, use an alpha of 0.6 to improve readability
 
 Histograms:
-- When plotting a histogram, use `geom_histogram_custom`, so that all histograms are plotted without excessive amount of ink
+- When plotting a histogram, if you're seeing the package scripts, use `geom_histogram_custom`, so that all histograms are plotted without excessive amount of ink. If you don't have access to the package, then this means: plot the histogram as an outline-only step path, not filled bars, no full vertical bars down to the axis. Just the histogram tops. 
 - If the user does not specify a binwidth/number of bins, use the Freedman-Diaconis rule to calculate the best suiting binwidth. Take extra care in case the axis needs to be logarithmic. If you have access to the whole package scripts, use the functions provided in `histogram_functions.R` to calculate the binwidth.
 
 Barplots/Lollipop plots
@@ -41,7 +47,7 @@ Boxplots:
 - When plotting a boxplot, use an alpha of 0.6 for the fill colour and linewidth=0.8 for the line
 
 Comparative plots:
-- When comparing the same measurement at multiple distances/conditions, overlay the histograms in one plot (not separate subplots). Use different colours for each (see colour rules below) and annotate them at the top-right
+- When comparing the same measurement at multiple distances/conditions, overlay the distributions in one plot (not separate subplots). Use different colours for each (see colour rules below) and annotate them at the top-right
 
 ### Other plot elements:
 - When plotting any line, use a linewidth of 0.8 to improve readability
@@ -78,7 +84,7 @@ Comparative plots:
 - Start from a default ggplot **classic theme**
 - Use a white plot background
 - Use the system's default sans-serif font family for all text
-- Default base font size = 12
+- Default base font size = 12 pt
 
 ### Margins
 
@@ -97,19 +103,19 @@ Aim: to be present but subtle
 ### Title details
 
 Plot Title
-- Size: 14
+- Size: 14 pt
 - Bold
 - Centered
 - Space below: 10 pt
 
 Plot Subtitle
-- Size: 10
+- Size: 10 pt
 - Centered
 - Color: dark gray
 - Space below: 12 pt
 
 Caption
-- Size: 8
+- Size: 8 pt
 - Italic
 - Right aligned
 - Space above: 10 pt
@@ -117,10 +123,10 @@ Caption
 ### Axes details
 
 Axis Text (tick labels)
-- Size: 12
+- Size: 12 pt
 
 Axis Titles
-- Size: 13
+- Size: 13 pt
 - Bold
 - X title: space above 10 pt
 - Y title: space right 10 pt
@@ -133,15 +139,15 @@ Axis Lines and Ticks
 ### Legend
 
 Legend title:
-- Size: 12
+- Size: 12 pt
 - Bold
 
 Legend text:
-- Size: 11
+- Size: 11 pt
 
 ### Facets
 
-- Facet strip text size: 11
+- Facet strip text size: 11 pt
 - Facet strip background:
     - White fill
     - Thin gray border

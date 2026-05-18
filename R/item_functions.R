@@ -16,15 +16,17 @@ plot_measures <- function(df){
   }
 
   # Keep only the items
-  df <- df |> dplyr::filter(component_id == 0)
+  #df <- df |> dplyr::filter(component_id == 0)
 
   binwidth_bgo <- freedman_diaconis_binwidth_log(df$bgo_10cm_c_s)
-  binwidth_dr <- freedman_diaconis_binwidth_log(df$DR_10cm_uSv_h)
-
+  binwidth_dr <- freedman_diaconis_binwidth_log(c(df$DR_10cm_uSv_h, df$DR_40cm_uSv_h))
+print(binwidth_dr)
 
   plot1 <- ggplot2::ggplot(df)+
-    geom_histogram_custom("bgo_10cm_c_s",binwidth_bgo,"coral")+
-    geom_histogram_custom("bgo_40cm_c_s",binwidth_bgo,"cadetblue")+
+    geom_histogram_rowiz(ggplot2::aes(bgo_10cm_c_s),
+  binwidth= binwidth_bgo,color="coral")+
+    geom_histogram_rowiz(ggplot2::aes(bgo_40cm_c_s),
+  binwidth=binwidth_bgo,color="cadetblue")+
     ggplot2::scale_x_log10()+
     theme_professional()+
     ggplot2::labs(x="BGO counting rate [c/s]", y="Number of items")+
@@ -38,8 +40,10 @@ plot_measures <- function(df){
     vjust = 4)
 
   plot2 <- ggplot2::ggplot(df)+
-    geom_histogram_custom("DR_10cm_uSv_h",binwidth_bgo,"coral")+
-    geom_histogram_custom("DR_40cm_uSv_h",binwidth_bgo,"cadetblue")+
+    geom_histogram_rowiz(ggplot2::aes(DR_10cm_uSv_h),
+  binwidth=binwidth_dr,color="coral")+
+    geom_histogram_rowiz(ggplot2::aes(DR_40cm_uSv_h),
+  binwidth=binwidth_dr,color="cadetblue")+
     ggplot2::scale_x_log10()+
     theme_professional()+
     ggplot2::labs(x="Dose rate [uSv/h]", y="Number of items")+
@@ -58,7 +62,7 @@ plot_measures <- function(df){
     nrow = 1
     )
   
-  return(plot)
+  return(list(plot1,plot2,plot))
 }
 
 #' Function to plot characterisation quantities: LL and IRAS. 
