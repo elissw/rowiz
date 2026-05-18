@@ -49,19 +49,6 @@ label_machines <- function(df) {
 }
 
 
-
-#' Check what are the main materials our items consist of
-#' Returns a vector with the main material names
-#' @name get_materials
-#' @param df dataframe name
-#' @export
-get_materials <- function(df) {
-  df_main <- df |> dplyr::filter(component_id >0)
-  main_mats <- unique(df_main$material)
-  return(main_mats)
-}
-
-
 #' Find the relevant nuclides for a specific radiological limit.
 #' By relevant nuclides we mean the ones that have an activity of >= 1% of the whatever limit
 #' for at least one item in the dataframe.
@@ -110,3 +97,5 @@ get_relevant_radionuclides <- function(df, limit_col) {
   return(df_radionuclide_library$radionuclide[keep])
 
 }
+
+
