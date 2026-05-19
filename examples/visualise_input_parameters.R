@@ -50,3 +50,45 @@ print(plot_actind)
 # geom_bar_rowiz is a wrapper function for geom_bar, it makes sure the bars are 
 # cadetblue in colour and thinner than the default option. Of course, all these 
 # options can be overriden if you want to, just pass new arguments for them.
+
+# Plot something differently (for the fun)
+#----------------------------
+# Machine of origine as a lollipop plot
+df <- label_machines(df)
+# label_machines is a function provided in the data preparation script
+# named prep_feature_engineering, which adds a column next to the original
+# column `machine` which is named `machine_labelled` and contains the
+# actual name of the accelerator. ATLAS, CMS, ALICE and LHCb are all
+# grouped together under LHC experiments
+df_counts <- df |>
+  dplyr::count(machine_labelled, name = "n")
+plot <- ggplot2::ggplot(df_counts)+
+  # geom_lollipop_rowiz is a custom ggplot geometry combining
+  # geom_segment and geom_point in order to achieve the lollipop look
+  geom_lollipop_rowiz(ggplot2::aes(x=0,xend=n,
+  y=machine_labelled,yend=machine_labelled))+
+  theme_barplot_axes+
+  ggplot2::labs(title="Number of items per machine of origin")+
+  ggplot2::geom_text(ggplot2::aes(x=n,y=machine_labelled,label=n),
+hjust=-0.5)
+print(plot)
+# theme_barplot_axes is a theme add-on that kills the x axis, 
+# cancels the title from the y axis (better use a global title)
+# and kills the grid, since there's no values on x axis that
+# we need to read.
+# When plotting this type of plot, it is highly recommended
+# to label the points with whatever value we need to inspect
+
+# Save a plot
+#-------------
+save_plot(plot_mat,2,3,"y","example_save.png")
+# We save the material composition plot which the `plot_mat` object.
+# It contains 2 rows and 3 columns in total, as it consists of subplots.
+# It also contains a legend on the right (not a ggplot default but still
+# a legend deserving breathing space). We save it at this folder as
+# test_save.png. When exporting an image, it's generally recommended 
+# to avoid jpg as its quality is not the highest. png is a good option
+# for convenience, it's decent quality (especially now that we force a 
+# good resolution) and every software can handle it. If you really want
+# something infinitely scalable and editable, go for eps but beware of
+# transparency issues and software imports.
