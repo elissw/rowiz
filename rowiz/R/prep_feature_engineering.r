@@ -59,7 +59,7 @@ label_machines <- function(df) {
 #' @export
 get_relevant_radionuclides <- function(df, limit_col) {
 
-  df_radionuclide_library <- read.csv(system.file("lib", "radionuclide_library.csv", package = "MoViz"))
+  df_radionuclide_library <- read.csv(system.file("lib", "radionuclide_library.csv", package = "rowiz"))
 
   # Keep only item rows
   df_items <- df[df$component_id == 0, ]
