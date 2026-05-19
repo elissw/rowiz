@@ -23,6 +23,7 @@ get_radionuclides <- function(df) {
   rn_pattern <- "^[a-zA-Z]{1,2}-[0-9]{1,3}[mn]?$"
 
   # Get the columns following the convention
+  all_columns <- colnames(df)
   radionuclides <- all_columns[ grepl(rn_pattern, colnames(df)) ]
 
   return(radionuclides)
