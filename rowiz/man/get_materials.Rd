@@ -2,8 +2,7 @@
 % Please edit documentation in R/prep_selectors.R
 \name{get_materials}
 \alias{get_materials}
-\title{Check what are the main materials our items consist of
-Returns a vector with the main material names}
+\title{Extract material composition}
 \usage{
 get_materials(df)
 }
@@ -12,5 +11,7 @@ get_materials(df)
 }
 \description{
 Check what are the main materials our items consist of
+}
+\details{
 Returns a vector with the main material names
 }

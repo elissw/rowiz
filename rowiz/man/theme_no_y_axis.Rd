@@ -3,8 +3,7 @@
 \docType{data}
 \name{theme_no_y_axis}
 \alias{theme_no_y_axis}
-\title{Theme function that deletes the y axis of a plot
-Use by adding +theme_no_y_axis to your ggplot object}
+\title{Theme add-on to kill y axis}
 \format{
 An object of class \code{theme} (inherits from \code{gg}) of length 4.
 }
@@ -13,6 +12,9 @@ theme_no_y_axis
 }
 \description{
 Theme function that deletes the y axis of a plot
+}
+\details{
 Use by adding +theme_no_y_axis to your ggplot object
+Better do it after +theme_professional() so you don't override it.
 }
 \keyword{datasets}

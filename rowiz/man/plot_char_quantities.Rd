@@ -2,8 +2,7 @@
 % Please edit documentation in R/item_functions.R
 \name{plot_char_quantities}
 \alias{plot_char_quantities}
-\title{Function to plot characterisation quantities: LL and IRAS.
-Returns the plot (patchwork wrap).}
+\title{Visualise characterisation quantities}
 \usage{
 plot_char_quantities(df)
 }
@@ -12,5 +11,7 @@ plot_char_quantities(df)
 }
 \description{
 Function to plot characterisation quantities: LL and IRAS.
+}
+\details{
 Returns the plot (patchwork wrap).
 }

@@ -1,5 +1,8 @@
+#' Visualise IRAS
+#' 
 #' Function to plot IRAS resulting from the characterisation 
 #' as well as the original AW RN inventory IRAS. 
+#' 
 #' Returns the plot (ggplot).
 #' @name plot_IRAS
 #' @param df dataframe with characterised and aw iras

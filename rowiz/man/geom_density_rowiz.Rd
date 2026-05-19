@@ -2,9 +2,7 @@
 % Please edit documentation in R/viz_geometry_wrappers.R
 \name{geom_density_rowiz}
 \alias{geom_density_rowiz}
-\title{Wrapper function for geom_density
-Purpose: To include by default a pre-defined linewidth, fill transparency and colour
-Use: Exactly like geom_density. Defaults will be overriden if specified otherwise in the arguments.}
+\title{Custom geom_density}
 \usage{
 geom_density_rowiz(
   mapping = NULL,
@@ -17,7 +15,9 @@ geom_density_rowiz(
 )
 }
 \description{
-Wrapper function for geom_density
 Purpose: To include by default a pre-defined linewidth, fill transparency and colour
-Use: Exactly like geom_density. Defaults will be overriden if specified otherwise in the arguments.
+}
+\details{
+Use: Exactly like geom_density.
+Defaults will be overriden if specified otherwise in the arguments.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/guidelines.R
 \name{Rowiz_help}
 \alias{Rowiz_help}
-\title{Function to introduce the user to the package}
+\title{Welcome message}
 \usage{
 Rowiz_help()
 }

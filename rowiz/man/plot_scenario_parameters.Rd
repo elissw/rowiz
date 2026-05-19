@@ -2,9 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_combined_plots.r
 \name{plot_scenario_parameters}
 \alias{plot_scenario_parameters}
-\title{Function to plot most importan scenario quantities:
-Materials & irradiation details together.
-Returns the plot (patchwork wrap)}
+\title{Visalise scenario parameters}
 \usage{
 plot_scenario_parameters(df)
 }
@@ -14,5 +12,8 @@ plot_scenario_parameters(df)
 \description{
 Function to plot most importan scenario quantities:
 Materials & irradiation details together.
+You know, that plot that usually goes in a report.
+}
+\details{
 Returns the plot (patchwork wrap)
 }

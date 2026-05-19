@@ -1,5 +1,9 @@
-#' Function to plot irradiation conditions: beam intensity, 
-#' irradiation time and waiting time. Returns the plot (patchwork wrap).
+#' Visualise irradiation characteristics
+#' 
+#' Function to plot irradiation characteristics: beam intensity, 
+#' irradiation time and waiting time, all as density plots.
+#' 
+#' Returns the plot (patchwork wrap).
 #' @name plot_irradiation_parameters
 #' @param df Dataframe with beam intensity, irradiation and waiting time columns (can be scn or itm)
 #' @export
@@ -19,7 +23,10 @@ plot_irradiation_parameters <- function(df){
   return(plot)
 }
 
-#' Function to plot mass, volume and density info in case it's needed.
+#' Visualise mass et al
+#' 
+#' Function to plot mass, volume and density info as density plots
+#' 
 #' Returns the plot (patchwork wrap)
 #' @name plot_mass_info
 #' @param df dataframe with mass, volume and density columns (be it scn or itm or whatever)
@@ -40,9 +47,12 @@ plot_mass_info <- function(df) {
 
 }
 
-
+#' Visalise scenario parameters
+#' 
 #' Function to plot most importan scenario quantities: 
 #' Materials & irradiation details together. 
+#' You know, that plot that usually goes in a report.
+#' 
 #' Returns the plot (patchwork wrap)
 #' @name plot_scenario_parameters
 #' @param df Dataframe with scenario parameters (can be scn or itm, as long as it has columns with materials and irradiation details)
@@ -67,8 +77,10 @@ plot_scenario_parameters <- function(df){
 }
 
 
-
+#' Visualise everything 
+#' 
 #' Inspect all scenario parameters in a glance
+#' 
 #' Returns a named list of plots: "plot_physical_characteristics"
 #' and "plot_irradiation_characteristics"
 #' @name viz_all_input_parameters

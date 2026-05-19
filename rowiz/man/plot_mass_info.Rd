@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_combined_plots.r
 \name{plot_mass_info}
 \alias{plot_mass_info}
-\title{Function to plot mass, volume and density info in case it's needed.
-Returns the plot (patchwork wrap)}
+\title{Visualise mass et al}
 \usage{
 plot_mass_info(df)
 }
@@ -11,6 +10,8 @@ plot_mass_info(df)
 \item{df}{dataframe with mass, volume and density columns (be it scn or itm or whatever)}
 }
 \description{
-Function to plot mass, volume and density info in case it's needed.
+Function to plot mass, volume and density info as density plots
+}
+\details{
 Returns the plot (patchwork wrap)
 }

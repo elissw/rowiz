@@ -2,7 +2,7 @@
 % Please edit documentation in R/gen_data_generation.R
 \name{create_one_package}
 \alias{create_one_package}
-\title{Function to create one package}
+\title{Create a package}
 \usage{
 create_one_package(df, items_per_package, materials)
 }

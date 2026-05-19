@@ -2,9 +2,7 @@
 % Please edit documentation in R/viz_geometry_wrappers.R
 \name{geom_histogram_rowiz}
 \alias{geom_histogram_rowiz}
-\title{Wrapper function for geom_histogram
-Purpose: To include by default a pre-defined linewidth and bin fill style
-Use: Exactly like geom_histogram. Defaults will be overriden if specified otherwise in the arguments.}
+\title{Custom geom_histogram}
 \usage{
 geom_histogram_rowiz(
   mapping = NULL,
@@ -16,7 +14,8 @@ geom_histogram_rowiz(
 )
 }
 \description{
-Wrapper function for geom_histogram
 Purpose: To include by default a pre-defined linewidth and bin fill style
+}
+\details{
 Use: Exactly like geom_histogram. Defaults will be overriden if specified otherwise in the arguments.
 }

@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_waiting_time}
 \alias{plot_waiting_time}
-\title{Function to plot the waiting time distribution
-Returns the plot (ggplot)}
+\title{Visualise waiting time}
 \usage{
 plot_waiting_time(df)
 }
@@ -11,6 +10,8 @@ plot_waiting_time(df)
 \item{df}{dataframe with waiting time column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot the waiting time distribution
+Function to plot the waiting time distribution as a density plot per machine
+}
+\details{
 Returns the plot (ggplot)
 }

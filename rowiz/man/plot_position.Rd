@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_position}
 \alias{plot_position}
-\title{Function to plot position of irradiation
-Returns the plot (patchwork)}
+\title{Visualise irradiation position}
 \usage{
 plot_position(df)
 }
@@ -11,6 +10,9 @@ plot_position(df)
 \item{df}{dataframe with position column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot position of irradiation
+Function to plot position of irradiation. Positions in accelerators are separated
+from LHC
+}
+\details{
 Returns the plot (patchwork)
 }

@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_filling_ratio}
 \alias{plot_filling_ratio}
-\title{Function to plot synthetic items' filing ratio
-Returns the plot (ggplot)}
+\title{Visualise filling ratio}
 \usage{
 plot_filling_ratio(df)
 }
@@ -11,6 +10,8 @@ plot_filling_ratio(df)
 \item{df}{dataframe with filling ratio column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot synthetic items' filing ratio
+Function to plot synthetic items' filing ratio as a density plot
+}
+\details{
 Returns the plot (ggplot)
 }

@@ -2,9 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_combined_plots.r
 \name{viz_all_input_parameters}
 \alias{viz_all_input_parameters}
-\title{Inspect all scenario parameters in a glance
-Returns a named list of plots: "plot_physical_characteristics"
-and "plot_irradiation_characteristics"}
+\title{Visualise everything}
 \usage{
 viz_all_input_parameters(df)
 }
@@ -13,6 +11,8 @@ viz_all_input_parameters(df)
 }
 \description{
 Inspect all scenario parameters in a glance
+}
+\details{
 Returns a named list of plots: "plot_physical_characteristics"
 and "plot_irradiation_characteristics"
 }

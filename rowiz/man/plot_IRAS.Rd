@@ -3,9 +3,7 @@
 \name{plot_IRAS}
 \alias{plot_IRAS}
 \alias{plot_iras}
-\title{Function to plot IRAS resulting from the characterisation
-as well as the original AW RN inventory IRAS.
-Returns the plot (ggplot).}
+\title{Visualise IRAS}
 \usage{
 plot_iras(df)
 }
@@ -15,5 +13,7 @@ plot_iras(df)
 \description{
 Function to plot IRAS resulting from the characterisation
 as well as the original AW RN inventory IRAS.
+}
+\details{
 Returns the plot (ggplot).
 }

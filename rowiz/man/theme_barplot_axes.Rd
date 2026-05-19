@@ -3,9 +3,7 @@
 \docType{data}
 \name{theme_barplot_axes}
 \alias{theme_barplot_axes}
-\title{Theme function that edits both axes so they look nice for a barplot
-No x axis and no title for y axis. Also no grid.
-Use by adding +theme_barplot_axes to your ggplot object}
+\title{Theme add-on for barplots/lollipops}
 \format{
 An object of class \code{theme} (inherits from \code{gg}) of length 6.
 }
@@ -15,6 +13,9 @@ theme_barplot_axes
 \description{
 Theme function that edits both axes so they look nice for a barplot
 No x axis and no title for y axis. Also no grid.
+}
+\details{
 Use by adding +theme_barplot_axes to your ggplot object
+Better do it after +theme_professional() so you don't override it.
 }
 \keyword{datasets}

@@ -1,4 +1,7 @@
-#' Label machines and group LHC experiments (keeps original column).
+#' Label machines
+#'
+#' Label machines and group LHC experiments together under a new column (keeps original column).
+#' 
 #' Returns the dataframe with an added column named machine_labelled.
 #' @name label_machines
 #' @param df dataframe name
@@ -48,10 +51,12 @@ label_machines <- function(df) {
 
 }
 
-
+#' Extract relevant radionuclides
+#'
 #' Find the relevant nuclides for a specific radiological limit.
 #' By relevant nuclides we mean the ones that have an activity of >= 1% of the whatever limit
 #' for at least one item in the dataframe.
+#' 
 #' Returns a vector with the revelant nuclide names
 #' @name get_relevant_radionuclides
 #' @param df dataframe name

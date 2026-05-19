@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_beam_losses}
 \alias{plot_beam_losses}
-\title{Function to plot the beam losses distribution
-Returns the plot (ggplot)}
+\title{Visualise beam losses}
 \usage{
 plot_beam_losses(df)
 }
@@ -11,6 +10,8 @@ plot_beam_losses(df)
 \item{df}{dataframe with beam losses column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot the beam losses distribution
+Function to plot the beam losses distribution as a density plot per machine
+}
+\details{
 Returns the plot (ggplot)
 }

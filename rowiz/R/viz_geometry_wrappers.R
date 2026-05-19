@@ -1,6 +1,9 @@
-#' Wrapper function for geom_density
+#' Custom geom_density
+#' 
 #' Purpose: To include by default a pre-defined linewidth, fill transparency and colour
-#' Use: Exactly like geom_density. Defaults will be overriden if specified otherwise in the arguments. 
+#'
+#' Use: Exactly like geom_density. 
+#' Defaults will be overriden if specified otherwise in the arguments. 
 #' @name geom_density_rowiz
 #' @export
 geom_density_rowiz <- function(mapping = NULL,
@@ -22,9 +25,12 @@ geom_density_rowiz <- function(mapping = NULL,
   )
 }
 
-#' Wrapper function for geom_density_ridges
+#' Custom geom_density_ridges
+#' 
 #' Purpose: To include by default a pre-defined linewidth, fill transparency and colour
-#' Use: Exactly like geom_density_ridges. Defaults will be overriden if specified otherwise in the arguments. 
+#' 
+#' Use: Exactly like geom_density_ridges. 
+#' Defaults will be overriden if specified otherwise in the arguments. 
 #' @name geom_density_ridges_rowiz
 #' @export
 geom_density_ridges_rowiz <- function(mapping = NULL,
@@ -42,9 +48,12 @@ geom_density_ridges_rowiz <- function(mapping = NULL,
   )
 }
 
-#' Wrapper function for geom_bar
+#' Custom geom_bar
+#' 
 #' Purpose: To include by default a smaller bar width because the default default one is too thick
-#' Use: Exactly like geom_bar. Defaults will be overriden if specified otherwise in the arguments. 
+#' 
+#' Use: Exactly like geom_bar. 
+#' Defaults will be overriden if specified otherwise in the arguments. 
 #' @name geom_bar_rowiz
 #' @export
 geom_bar_rowiz <- function(mapping = NULL,
@@ -61,8 +70,10 @@ geom_bar_rowiz <- function(mapping = NULL,
   )
 }
 
-#' Wrapper function for geom_histogram
+#' Custom geom_histogram
+#' 
 #' Purpose: To include by default a pre-defined linewidth and bin fill style
+#' 
 #' Use: Exactly like geom_histogram. Defaults will be overriden if specified otherwise in the arguments. 
 #' @name geom_histogram_rowiz
 #' @export
@@ -86,9 +97,12 @@ geom_histogram_rowiz <- function(mapping = NULL,
 }
 
 
-#' Custom ggplot style geometry to plot a lollipop plot
+#' Custom lollipop plot geometry
+#' 
 #' Purpose: To avoid manually adding points and segments etc
-#' Use: Exactly like any other ggplot geom. Just use the x and y you want your points to be at
+#' 
+#' Use: Exactly like any other ggplot geom. 
+#' Just use the x, xend, y, yend you want your segmnts to extend to and your points to be at
 #' Defaults will be overriden if specified otherwise in the arguments. 
 #' @name geom_lollipop_rowiz
 #' @export

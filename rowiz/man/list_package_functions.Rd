@@ -2,7 +2,7 @@
 % Please edit documentation in R/guidelines.R
 \name{list_package_functions}
 \alias{list_package_functions}
-\title{Function to show all function names}
+\title{Show functions}
 \usage{
 list_package_functions()
 }

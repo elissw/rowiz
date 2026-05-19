@@ -1,3 +1,5 @@
+#' Create a package
+#' 
 #' Function to create one package
 #' @name create_one_package
 #' @param df dataframe containing the items we will sample from

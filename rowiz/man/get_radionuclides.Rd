@@ -2,8 +2,7 @@
 % Please edit documentation in R/prep_selectors.R
 \name{get_radionuclides}
 \alias{get_radionuclides}
-\title{Extract the radionuclides present in the dataframe.
-Returns a vector with the names.}
+\title{Extract radionuclides}
 \usage{
 get_radionuclides(df)
 }
@@ -11,6 +10,8 @@ get_radionuclides(df)
 \item{df}{dataframe name}
 }
 \description{
-Extract the radionuclides present in the dataframe.
+Extract all the radionuclides present in the dataframe.
+}
+\details{
 Returns a vector with the names.
 }

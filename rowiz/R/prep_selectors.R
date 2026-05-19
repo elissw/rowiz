@@ -1,4 +1,8 @@
+
+#' Extract material composition
+#'
 #' Check what are the main materials our items consist of
+#' 
 #' Returns a vector with the main material names
 #' @name get_materials
 #' @param df dataframe name
@@ -9,8 +13,10 @@ get_materials <- function(df) {
   return(main_mats)
 }
 
-
-#' Extract the radionuclides present in the dataframe.
+#' Extract radionuclides
+#'
+#' Extract all the radionuclides present in the dataframe.
+#' 
 #' Returns a vector with the names.
 #' @name get_radionuclides
 #' @param df dataframe name

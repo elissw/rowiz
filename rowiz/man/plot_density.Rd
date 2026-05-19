@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_density}
 \alias{plot_density}
-\title{Function to plot synthetic items' density
-Returns the plot (ggplot)}
+\title{Visualise density}
 \usage{
 plot_density(df)
 }
@@ -11,6 +10,8 @@ plot_density(df)
 \item{df}{dataframe with density column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot synthetic items' density
+Function to plot synthetic items' density as a density plot
+}
+\details{
 Returns the plot (ggplot)
 }

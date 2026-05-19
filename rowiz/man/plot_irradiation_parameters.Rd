@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_combined_plots.r
 \name{plot_irradiation_parameters}
 \alias{plot_irradiation_parameters}
-\title{Function to plot irradiation conditions: beam intensity,
-irradiation time and waiting time. Returns the plot (patchwork wrap).}
+\title{Visualise irradiation characteristics}
 \usage{
 plot_irradiation_parameters(df)
 }
@@ -11,6 +10,9 @@ plot_irradiation_parameters(df)
 \item{df}{Dataframe with beam intensity, irradiation and waiting time columns (can be scn or itm)}
 }
 \description{
-Function to plot irradiation conditions: beam intensity,
-irradiation time and waiting time. Returns the plot (patchwork wrap).
+Function to plot irradiation characteristics: beam intensity,
+irradiation time and waiting time, all as density plots.
+}
+\details{
+Returns the plot (patchwork wrap).
 }

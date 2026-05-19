@@ -3,7 +3,7 @@
 \name{plot_measures}
 \alias{plot_measures}
 \title{Function to plot measurable quantities: bgo counting rate and
-dose rate. Returns the plot (patchwork wrap)}
+dose rate.}
 \usage{
 plot_measures(df)
 }
@@ -11,6 +11,5 @@ plot_measures(df)
 \item{df}{Dataframe with bgo and dose rate columns}
 }
 \description{
-Function to plot measurable quantities: bgo counting rate and
-dose rate. Returns the plot (patchwork wrap)
+Returns the plot (patchwork wrap)
 }

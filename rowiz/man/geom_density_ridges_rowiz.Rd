@@ -2,9 +2,7 @@
 % Please edit documentation in R/viz_geometry_wrappers.R
 \name{geom_density_ridges_rowiz}
 \alias{geom_density_ridges_rowiz}
-\title{Wrapper function for geom_density_ridges
-Purpose: To include by default a pre-defined linewidth, fill transparency and colour
-Use: Exactly like geom_density_ridges. Defaults will be overriden if specified otherwise in the arguments.}
+\title{Custom geom_density_ridges}
 \usage{
 geom_density_ridges_rowiz(
   mapping = NULL,
@@ -15,7 +13,9 @@ geom_density_ridges_rowiz(
 )
 }
 \description{
-Wrapper function for geom_density_ridges
 Purpose: To include by default a pre-defined linewidth, fill transparency and colour
-Use: Exactly like geom_density_ridges. Defaults will be overriden if specified otherwise in the arguments.
+}
+\details{
+Use: Exactly like geom_density_ridges.
+Defaults will be overriden if specified otherwise in the arguments.
 }

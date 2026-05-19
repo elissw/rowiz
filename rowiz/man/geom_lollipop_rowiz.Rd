@@ -4,10 +4,7 @@
 \name{geom_lollipop_rowiz}
 \alias{geom_lollipop_rowiz}
 \alias{GeomLollipop}
-\title{Custom ggplot style geometry to plot a lollipop plot
-Purpose: To avoid manually adding points and segments etc
-Use: Exactly like any other ggplot geom. Just use the x and y you want your points to be at
-Defaults will be overriden if specified otherwise in the arguments.}
+\title{Custom lollipop plot geometry}
 \format{
 An object of class \code{GeomLollipop} (inherits from \code{Geom}, \code{ggproto}, \code{gg}) of length 4.
 }
@@ -15,9 +12,11 @@ An object of class \code{GeomLollipop} (inherits from \code{Geom}, \code{ggproto
 GeomLollipop
 }
 \description{
-Custom ggplot style geometry to plot a lollipop plot
 Purpose: To avoid manually adding points and segments etc
-Use: Exactly like any other ggplot geom. Just use the x and y you want your points to be at
+}
+\details{
+Use: Exactly like any other ggplot geom.
+Just use the x, xend, y, yend you want your segmnts to extend to and your points to be at
 Defaults will be overriden if specified otherwise in the arguments.
 }
 \keyword{datasets}

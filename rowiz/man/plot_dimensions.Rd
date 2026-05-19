@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_dimensions}
 \alias{plot_dimensions}
-\title{Function to plot synthetic items' dimensions
-Returns the plot (ggplot)}
+\title{Visualise item dimensions}
 \usage{
 plot_dimensions(df)
 }
@@ -11,6 +10,8 @@ plot_dimensions(df)
 \item{df}{dataframe with machine column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot synthetic items' dimensions
+Function to plot synthetic items' dimensions as a density plot
+}
+\details{
 Returns the plot (ggplot)
 }

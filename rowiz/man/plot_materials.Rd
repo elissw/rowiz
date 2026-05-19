@@ -2,9 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_materials}
 \alias{plot_materials}
-\title{Function to plot material composition
-Will plot main material distributions and subgroup percentages.
-Returns the plot (patchwork wrap).}
+\title{Visualise material composition}
 \usage{
 plot_materials(df)
 }
@@ -14,5 +12,7 @@ plot_materials(df)
 \description{
 Function to plot material composition
 Will plot main material distributions and subgroup percentages.
+}
+\details{
 Returns the plot (patchwork wrap).
 }

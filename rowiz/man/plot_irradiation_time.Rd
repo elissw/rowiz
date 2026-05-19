@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_irradiation_time}
 \alias{plot_irradiation_time}
-\title{Function to plot the irradiation time distribution
-Returns the plot (ggplot)}
+\title{Visualise irradiation time}
 \usage{
 plot_irradiation_time(df)
 }
@@ -11,6 +10,8 @@ plot_irradiation_time(df)
 \item{df}{dataframe with irradiation time column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot the irradiation time distribution
+Function to plot the irradiation time distribution as a density plot per machine
+}
+\details{
 Returns the plot (ggplot)
 }

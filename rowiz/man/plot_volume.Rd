@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_volume}
 \alias{plot_volume}
-\title{Function to plot synthetic items' volume
-Returns the plot (ggplot)}
+\title{Visualise item volume}
 \usage{
 plot_volume(df)
 }
@@ -11,6 +10,8 @@ plot_volume(df)
 \item{df}{dataframe with machine column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot synthetic items' volume
+Function to plot synthetic items' volume as a density plot
+}
+\details{
 Returns the plot (ggplot)
 }

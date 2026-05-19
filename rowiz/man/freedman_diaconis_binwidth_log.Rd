@@ -2,8 +2,7 @@
 % Please edit documentation in R/ut_stat_functions.R
 \name{freedman_diaconis_binwidth_log}
 \alias{freedman_diaconis_binwidth_log}
-\title{Function to calculate bin width according to the
-Freedman - Diaconis rule but in a log axis. Returns the number.}
+\title{F-D binwidth logarithmic}
 \usage{
 freedman_diaconis_binwidth_log(x)
 }
@@ -12,5 +11,8 @@ freedman_diaconis_binwidth_log(x)
 }
 \description{
 Function to calculate bin width according to the
-Freedman - Diaconis rule but in a log axis. Returns the number.
+Freedman - Diaconis rule but in a log axis.
+}
+\details{
+Returns the number.
 }

@@ -2,14 +2,15 @@
 % Please edit documentation in R/viz_theme.R
 \name{theme_professional}
 \alias{theme_professional}
-\title{Theme so all plots are homogeneous in terms of
-grids, axes, font sizes, etc. Use either by adding +theme_professional()
-to your ggplot object or by theme_set(theme_professional()) in your script.}
+\title{Theme}
 \usage{
 theme_professional(base_size = 12, base_family = "sans")
 }
 \description{
 Theme so all plots are homogeneous in terms of
-grids, axes, font sizes, etc. Use either by adding +theme_professional()
+grids, axes, font sizes, etc.
+}
+\details{
+Use either by adding +theme_professional()
 to your ggplot object or by theme_set(theme_professional()) in your script.
 }

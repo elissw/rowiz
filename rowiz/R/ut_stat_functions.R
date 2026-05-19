@@ -1,6 +1,9 @@
-#' Function to calculate bin width according to the
-#' Freedman - Diaconis rule. Returns the number
+#' F-D binwidth linear
 #'
+#' Function to calculate bin width according to the
+#' Freedman - Diaconis rule. 
+#' 
+#' Returns the number
 #' @name freedman_diaconis_binwidth
 #' @param x (vector) data to be plotted as histogram (eg. column of dataframe)
 #' @export
@@ -11,8 +14,12 @@ freedman_diaconis_binwidth <- function(x) {
   return (2 * iqr_x / (n^(1/3)))
 }
 
+#' F-D binwidth logarithmic
+#'
 #' Function to calculate bin width according to the
-#' Freedman - Diaconis rule but in a log axis. Returns the number.
+#' Freedman - Diaconis rule but in a log axis. 
+#' 
+#' Returns the number.
 #'
 #' @name freedman_diaconis_binwidth_log
 #' @param x (vector) data to be plotted as histogram (eg. column of dataframe)

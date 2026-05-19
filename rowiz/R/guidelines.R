@@ -1,3 +1,5 @@
+#' Welcome message
+#'
 #' Function to introduce the user to the package
 #' @name Rowiz_help
 #' @export
@@ -8,8 +10,7 @@ Rowiz_help <- function() {
                ROWIZ QUICK GUIDE
 ======================================================
 
-Hi, welcome to Rowiz and thank you for using this package
-instead of chatgpt directly.
+Hi, welcome to rowiz and thank you for using this package.
   
 To list all functions provided, do
   list_package_functions()
@@ -60,6 +61,8 @@ Other useful functions (use ? to see the manual)
 ")
 }
 
+#' Show functions
+#'
 #' Function to show all function names
 #' @name list_package_functions 
 #' @export

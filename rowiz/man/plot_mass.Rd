@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_mass}
 \alias{plot_mass}
-\title{Function to plot synthetic items' mass
-Returns the plot (ggplot)}
+\title{Visualise item mass}
 \usage{
 plot_mass(df)
 }
@@ -11,6 +10,8 @@ plot_mass(df)
 \item{df}{dataframe with machine column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot synthetic items' mass
+Function to plot synthetic items' mass as a density plot
+}
+\details{
 Returns the plot (ggplot)
 }

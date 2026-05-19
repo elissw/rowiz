@@ -2,12 +2,7 @@
 % Please edit documentation in R/prep_input_output.R
 \name{read_input_dataframe}
 \alias{read_input_dataframe}
-\title{Accept an input csv file path and name and read it into a dataframe
-making sure the options are what we need them to be:
-Treat first row as header.
-Don't convert strings to factors, keep them characters.
-Don't "fix" the names .
-Returns the dataframe}
+\title{Read csv file}
 \usage{
 read_input_dataframe(filename)
 }
@@ -20,5 +15,7 @@ making sure the options are what we need them to be:
 Treat first row as header.
 Don't convert strings to factors, keep them characters.
 Don't "fix" the names .
+}
+\details{
 Returns the dataframe
 }

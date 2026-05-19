@@ -1,5 +1,9 @@
+# Visualise measurable quantities
+#'
 #' Function to plot measurable quantities: bgo counting rate and 
-#' dose rate. Returns the plot (patchwork wrap)
+#' dose rate. 
+#' 
+#' Returns the plot (patchwork wrap)
 #' @name plot_measures
 #' @param df Dataframe with bgo and dose rate columns
 #' @export
@@ -65,7 +69,10 @@ print(binwidth_dr)
   return(list(plot1,plot2,plot))
 }
 
+#' Visualise characterisation quantities
+#' 
 #' Function to plot characterisation quantities: LL and IRAS. 
+#' 
 #' Returns the plot (patchwork wrap).
 #' @name plot_char_quantities
 #' @param df dataframe with said quantities

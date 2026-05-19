@@ -2,8 +2,7 @@
 % Please edit documentation in R/ut_stat_functions.R
 \name{freedman_diaconis_binwidth}
 \alias{freedman_diaconis_binwidth}
-\title{Function to calculate bin width according to the
-Freedman - Diaconis rule. Returns the number}
+\title{F-D binwidth linear}
 \usage{
 freedman_diaconis_binwidth(x)
 }
@@ -12,5 +11,8 @@ freedman_diaconis_binwidth(x)
 }
 \description{
 Function to calculate bin width according to the
-Freedman - Diaconis rule. Returns the number
+Freedman - Diaconis rule.
+}
+\details{
+Returns the number
 }

@@ -2,8 +2,7 @@
 % Please edit documentation in R/prep_feature_engineering.r
 \name{label_machines}
 \alias{label_machines}
-\title{Label machines and group LHC experiments (keeps original column).
-Returns the dataframe with an added column named machine_labelled.}
+\title{Label machines}
 \usage{
 label_machines(df)
 }
@@ -11,6 +10,8 @@ label_machines(df)
 \item{df}{dataframe name}
 }
 \description{
-Label machines and group LHC experiments (keeps original column).
+Label machines and group LHC experiments together under a new column (keeps original column).
+}
+\details{
 Returns the dataframe with an added column named machine_labelled.
 }

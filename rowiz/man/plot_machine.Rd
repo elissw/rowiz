@@ -2,8 +2,7 @@
 % Please edit documentation in R/viz_input_parameters_single_plots.R
 \name{plot_machine}
 \alias{plot_machine}
-\title{Function to plot machine of origin barlot, in case it's needed.
-Returns the plot (ggplot)}
+\title{Visualise machine of origin}
 \usage{
 plot_machine(df)
 }
@@ -11,6 +10,9 @@ plot_machine(df)
 \item{df}{dataframe with machine column (be it scn, itm or whatever works)}
 }
 \description{
-Function to plot machine of origin barlot, in case it's needed.
+Function to plot machine of origin barlot with a percentage of each machine.
+ATLAS, ALICE, CMS and LHCb are grouped together under LHC experiments.
+}
+\details{
 Returns the plot (ggplot)
 }

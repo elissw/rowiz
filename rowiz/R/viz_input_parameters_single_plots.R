@@ -1,5 +1,8 @@
+#' Visualise material composition
+#'
 #' Function to plot material composition
 #' Will plot main material distributions and subgroup percentages.
+#' 
 #' Returns the plot (patchwork wrap).
 #' @name plot_materials
 #' @param df dataframe containing a column with materials and one with groups (can be scn or itm). Note: column names are hard-coded but it will warn you if anything has changed.
@@ -83,8 +86,10 @@ plot_materials <- function(df) {
 
 }
 
-
-#' Function to plot the irradiation time distribution
+#' Visualise irradiation time
+#'
+#' Function to plot the irradiation time distribution as a density plot per machine
+#' 
 #' Returns the plot (ggplot)
 #' @name plot_irradiation_time
 #' @param df dataframe with irradiation time column (be it scn, itm or whatever works)
@@ -106,8 +111,10 @@ plot_irradiation_time <- function(df) {
   return(plot)
 }
 
-
-#' Function to plot the waiting time distribution
+#' Visualise waiting time
+#'
+#' Function to plot the waiting time distribution as a density plot per machine
+#' 
 #' Returns the plot (ggplot)
 #' @name plot_waiting_time
 #' @param df dataframe with waiting time column (be it scn, itm or whatever works)
@@ -129,8 +136,10 @@ plot_waiting_time <- function(df) {
   return(plot)
 }
 
-
-#' Function to plot the beam losses distribution
+#' Visualise beam losses
+#'
+#' Function to plot the beam losses distribution as a density plot per machine
+#' 
 #' Returns the plot (ggplot)
 #' @name plot_beam_losses
 #' @param df dataframe with beam losses column (be it scn, itm or whatever works)
@@ -153,7 +162,11 @@ plot_beam_losses <- function(df) {
   return(plot)
 }
 
-#' Function to plot machine of origin barlot, in case it's needed.
+#' Visualise machine of origin
+#'
+#' Function to plot machine of origin barlot with a percentage of each machine.
+#' ATLAS, ALICE, CMS and LHCb are grouped together under LHC experiments.
+#' 
 #' Returns the plot (ggplot)
 #' @name plot_machine
 #' @param df dataframe with machine column (be it scn, itm or whatever works)
@@ -191,7 +204,11 @@ plot_machine <- function(df) {
   return(plot)
 }
 
-#' Function to plot position of irradiation
+#' Visualise irradiation position
+#'
+#' Function to plot position of irradiation. Positions in accelerators are separated
+#' from LHC
+#' 
 #' Returns the plot (patchwork)
 #' @name plot_position
 #' @param df dataframe with position column (be it scn, itm or whatever works)
@@ -243,7 +260,10 @@ plot_position <- function(df) {
 
 }
 
-#' Function to plot synthetic items' dimensions
+#' Visualise item dimensions
+#' 
+#' Function to plot synthetic items' dimensions as a density plot
+#' 
 #' Returns the plot (ggplot)
 #' @name plot_dimensions
 #' @param df dataframe with machine column (be it scn, itm or whatever works)
@@ -268,8 +288,10 @@ plot_dimensions <- function(df) {
 
 }
 
-
-#' Function to plot synthetic items' volume
+#' Visualise item volume
+#' 
+#' Function to plot synthetic items' volume as a density plot
+#' 
 #' Returns the plot (ggplot)
 #' @name plot_volume
 #' @param df dataframe with machine column (be it scn, itm or whatever works)
@@ -287,8 +309,10 @@ plot_volume <- function(df) {
 
 }
 
-
-#' Function to plot synthetic items' mass
+#' Visualise item mass
+#' 
+#' Function to plot synthetic items' mass as a density plot
+#' 
 #' Returns the plot (ggplot)
 #' @name plot_mass
 #' @param df dataframe with machine column (be it scn, itm or whatever works)
@@ -302,8 +326,10 @@ plot_mass <- function(df) {
   return(plot)
 }
 
-
-#' Function to plot synthetic items' filing ratio
+#' Visualise filling ratio
+#' 
+#' Function to plot synthetic items' filing ratio as a density plot
+#' 
 #' Returns the plot (ggplot)
 #' @name plot_filling_ratio
 #' @param df dataframe with filling ratio column (be it scn, itm or whatever works)
@@ -317,8 +343,10 @@ plot_filling_ratio <- function(df) {
   return(plot)
 }
 
-
-#' Function to plot synthetic items' density
+#' Visualise density
+#' 
+#' Function to plot synthetic items' density as a density plot
+#' 
 #' Returns the plot (ggplot)
 #' @name plot_density
 #' @param df dataframe with density column (be it scn, itm or whatever works)
