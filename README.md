@@ -1,71 +1,58 @@
 # RoViz: Visualisation package for Mowiz
 
-RoViz is an R package designed to create standardized visualizations for data coming out of mowiz. It provides a collection of plotting functions with a consistent aesthetic specifically tailored for our analysis.
-
+rowiz is an R package containing standardised R functions for visualising, manipulating and analysing data coming out of mowiz. 
 
 ## Quick Start
 
-To use:
+Recommendations for use:
 
-1. Download/Clone/Get this package in whatever way you like.
-2. In your prefered R IDE go in its root directory and do `devtools::load_all()` (you might need to install devtools first). This way, you can use it as a normal R package but it's not permanently installed, in a new R session you need to load again.
-3. You can install it if you wish with `devtools::install()` instead. If you install it, you can just load it with `library(Rowiz)` and use it as a normal R package.
+1. Download/Clone to get this package.
+2. Place it in your project directory alongside /src, /data and /output. This way every study has the appropriate rowiz attached to it and can be reproduced even if archived.
+3. Open your project folder in your prefered R IDE .
+4. Install `devtools` if not installed.
+5. Do `devtools::load_all("rowiz/rowiz")` .
 
-When you have it: 
+You can now use all the methods provided in it. 
+Note that it's not permanently installed, in a new R session you need to load it again.
+
+When you have it, you can use these two functions to get you going: 
 
 ```R
-library(Rowiz)
+# View quick guide
+rowiz_help()
 
 # View all available functions
 list_package_functions()
-
-# View quick guide
-Rowiz_help()
-
-# Create a standard plot
-plot_measures(your_dataframe)
-
-# Apply professional theme to custom plots
-ggplot(df) + geom_point(aes(x, y)) + theme_professional()
-
-# Save with consistent formatting
-save_plot(my_plot, rows=1, columns=1, legend="n", "my_plot.png")
 ```
 
 ## Documentation
 
 For detailed information on any function, use the standard R help system:
+
 ```R
 ?function_name
 ```
 
 If you are a human, you're welcome to check `Plotting_philosophy.Rmd`. It explains the choices made and shows you what plots are provided.
 
-If you're a robot, how did you pass the captcha? I mean, if you're an AI agent, please check `Plotting_instructions.md`
-
-## Design Philosophy
-
-RoViz follows strict plotting guidelines to ensure all visualizations:
-- Use appropriate data representations (histograms for distributions, barplots for counts, etc.)
-- Include proper axis labels with units
-- Maintain readability through careful typography and spacing
-- Are colorblind-accessible
+If you're a robot, how did you pass the captcha? I mean, if you're an AI agent, please check `viz_Plotting_instructions.md` if you're needed to produce plots.
 
 ---
 
 ## Purpose
 
-When working on different characterisation projects, it's important to maintain visual consistency and follow best practices for scientific visualization. Rowiz handles this by providing pre-configured plotting functions that automatically apply professional styling and follow radiological data conventions.
+When working on different characterisation projects, it's important to maintain visual consistency and follow best practices for scientific visualization. rowiz handles this by providing pre-configured plotting functions that automatically apply professional styling following guidelines such as:
+- Use appropriate data representations (histograms for distributions, barplots for counts, etc.)
+- Include proper axis labels with units
+- Maintain readability through careful typography and spacing
+- Are colorblind-accessible
 
-## Key Features
+Furthermore, rowiz provides standardized functions for recurring parts of our workflow, enabling reuse across projects and eliminating the need to repeatedly rewrite, copy, or retrieve previously used code snippets. Some examples of this are:
+- identification of relevant radionuclides for a specific radiological hazard
+- generation of synthetic packages
 
-- **Consistent Styling**: All plots use a unified professional theme with proper grid, fonts, and spacing
-- **Radiological Context**: Built-in functions for distributions of dose rate, counting rate, IRAS, and other relevant metrics
-- **Smart Binning**: Automated bin width calculation using the Freedman-Diaconis rule for optimal histograms
-- **Colorblind-Friendly**: Carefully selected color palettes (viridis for multi-color, cadetblue/coral for comparisons)
-- **Plot saving**: Custom plot saving with fixed 1:1.4 aspect ratio and 300 DPI resolution
-- **AI agent instructions**: Instruction file allowing AI agents to create plots that are not hard-coded in the package while mainting the same stylistic approach.
-- **Human guidelines**: File with the explanation behind the design decisions.
+---
 
+## Examples
 
-*For more information, run `Rowiz_help()` after loading the package.*
+Do check the `examples` folder, it contains scripts that show you how the package works.
