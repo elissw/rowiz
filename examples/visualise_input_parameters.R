@@ -15,11 +15,12 @@ df <- read_input_dataframe("example_dataframe_itm.csv")
 
 # Visualise all input parameters
 #--------------------------------
+plot <- viz_all_input_parameters(df)
 # Physical characteristics
-plot_phys <- viz_all_input_parameters(df)$plot_physical_characteristics
+plot_phys <- plot$plot_physical_characteristics
 print(plot_phys)
 # Irradiation history
-plot_irr <- viz_all_input_parameters(df)$plot_irradiation_characteristics
+plot_irr <- plot$plot_irradiation_characteristics
 print(plot_irr)
 
 # Focus on material composition

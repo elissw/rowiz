@@ -1,5 +1,5 @@
 ---
-title: "RoViz (quick) guide"
+title: "rowiz (quick) guide"
 output: 
   html_document:
     toc: true
@@ -12,7 +12,7 @@ output:
 
 ### Purpose of this package
 
-This package aims towards a **consistent visual standard** for all figures produced by the team.
+The visualisation part of this package aims towards a **consistent visual standard** for all figures produced by the team.
 
 The goal is that any plot created with this package is:
 
@@ -29,14 +29,6 @@ The goal is that any plot created with this package is:
 First comes the info and then comes the art.
 The data must be the most visible element in the figure.
 Everything else (grid, text, legend, colors, margins) exists to support readability.
-
-In order to apply the above, a custom theme was developed. Its main points are visualised below:
-
----
-
-![](Files_for_guide/Theme_points.png)
-
----
 
 #### Color Philosophy
 
@@ -55,16 +47,19 @@ Color is never used decoratively — only to encode information.
 
 ## How to use
 
-### Load/install
+### Load
 
-For both cases you will need the package "devtools". Install with `install.packages("devtools")`
+Recommendations for use:
 
-- If you want to **install**: In an R console (in RStudio or Positron or VSCode with R extension, whatever you prefer) go to the root directory and do `devtools::install()`. This will send the package to wherever your R installs packages in your system and if the package changes you'll have to re-install. When you want to use the package, simple do `library(RoViz)`. You don't even need any of the files anymore.
+1. Download/Clone to get this package.
+2. Place it in your project directory alongside /src, /data and /output. This way every study has the appropriate rowiz attached to it and can be reproduced even if archived.
+Open your project folder in your prefered R IDE .
+3. Install devtools if not installed.
+4. Do devtools::load_all("rowiz/rowiz") .
 
-- If you want to **load**: In an R console (in RStudio or Positron or VSCode with R extension, whatever you prefer) go to the root directory and do `devtools::load_all()`. This time, the package will be visible normally in your R session but it's not installed on your computer. If you want to use it again in a different session you'll have to load it again. You can't use it without the whole folder structure.
+You can now use all the methods provided in it.
+Note that it's not permanently installed, in a new R session you need to load it again.
 
-Which of the two should I do? 
-Well, for reproducibility reasons, it's better if you pull the version of the package available when you're doing your study, have all the scripts in your study folder, load the package to work with it and later archive together with the rest of the study. In this way, if anyone needs to re-run in the future, everything will be working properly. 
 
 ### How to apply the theme 
 
@@ -87,45 +82,58 @@ By using this function, the aspect ratio is ensured to be 1:1.4 (so that the plo
 
 ## Available plots
 
-```{r setup, include=FALSE}
-devtools::load_all()
+Setup:
+
+```{r setup}
+devtools::load_all("../rowiz")
 library(ggplot2)
 theme_set(theme_professional())
-df <- read.csv("Files_for_guide/items_TFA_sherpa_2025_a_itm.csv")
+df <- read_input_dataframe("example_dataframe_itm.csv")
 ```
 
-### Material composition
+### Input variable plots
+
+**Individual plots** are available for almost all useful scenario parameters. 
+They are called 'plot_' and the name of the variable not exactly as it
+appears in the dataframe but at least in an understandable way like for
+example `plot_waiting_time`. There's tab completion so try your best to guess :P
+
+Two **global plots** of all input parameters are available with `viz_all_input_parameters`, in case you want to see literally everything.
+
+And we offer tailor made plot combinations that you can get as-is and use for your convenience:
+
+#### Material composition
 
 ```{r pmat, fig.width=3*5, fig.height=2*5/1.4, dpi=96}
 plot_materials(df)
 ```
 
-### Irradiation parameters
+#### Irradiation parameters
 
 ```{r pirr, fig.width=3*5, fig.height=1*5/1.4, dpi=96}
-plot_irradiation(df)
+plot_irradiation_parameters(df)
 ```
 
-### Physical characteristics
+#### The above combined
+
+```{r p2, fig.width=3*5, fig.height=3*5/1.4, dpi=96}
+plot_scenario_parameters(df)
+```
+
+#### Mass-related physical characteristics
 
 ```{r pmass, fig.width=3*5, fig.height=1*5/1.4, dpi=96}
 plot_mass_info(df)
 ```
 
-### Machine of origin
+### After processing the scenarios
 
-```{r pmach, fig.width=2*5, fig.height=1*5/1.4, dpi=96}
-plot_machine(df)
-```
+## Available tools for data preparation
 
-### Experimental values
+### Reading csv
 
-```{r pmeas, fig.width=2*5, fig.height=1*5/1.4, dpi=96}
-plot_measures(df)
-```
+Because R is weird, if you forget to explicitly specify the appropriate argument, `read.csv` is going to transform the column names into a "fixed" version accepted by R, so Co-60 will become Co.60 etc. And then some functions here will crash (some no because I put a failsafe but I'm old and I forget).
+To avoid this, there's a function provided that will force all options to what we need them to be. Use it like:
 
-### Characterisation quantities
+`df <- read_input_dataframe(filepath)`
 
-```{r pchar, fig.width=2*5, fig.height=1*5/1.4, dpi=96}
-plot_char_quantities(df)
-```
