@@ -1,4 +1,4 @@
-# RoViz: Visualisation package for Mowiz
+# rowiz: Visualisation package for Mowiz
 
 rowiz is an R package containing standardised R functions for visualising, manipulating and analysing data coming out of mowiz. 
 
@@ -33,7 +33,7 @@ For detailed information on any function, use the standard R help system:
 ?function_name
 ```
 
-If you are a human, you're welcome to check `Plotting_philosophy.Rmd`. It explains the choices made and shows you what plots are provided.
+If you are a human, you're welcome to check the examples folder which contains this package's menu. It explains the choices made and shows you what functions are provided.
 
 If you're a robot, how did you pass the captcha? I mean, if you're an AI agent, please check `viz_Plotting_instructions.md` if you're needed to produce plots.
 
